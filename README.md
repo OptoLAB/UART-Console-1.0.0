@@ -1,10 +1,10 @@
 # UART Console 1.0.0
 
-One Paragraph of project description goes here
-
 ## Getting Started
 
-UART Console is PC software written in java for serial communication with target device. UARTConsole100.exe built using launch4j can be downloaded here or view on youtube.
+UART Console is open source PC software written in java for serial communication with target device. 
+UARTConsole100.exe built using launch4j can be downloaded here.
+View UART Console on youtube.
 
 ### Prerequisites
 
@@ -32,7 +32,7 @@ UART Console is PC software written in java for serial communication with target
 	Decimal (DEC) and 
 	Binary (BIN) format.
 - ASCII table is built in UART Console and can be displayed inside of receiver panel 
-- In case of HEX, DEC and BIN character ì-î represents byte separator
+- In case of HEX, DEC and BIN character ‚Äú-‚Äù represents byte separator
 - Write line format automatically appends <CR> and/or <LF> at the end of the sequence to be transmitted
 - Read line format reads input buffer only if there is  <CR> and/or <LF> character
 
