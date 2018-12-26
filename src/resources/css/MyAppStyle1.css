@@ -1,0 +1,76 @@
+
+.button
+{
+	-fx-text-fill: #0000FF;
+	-fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-font-size: 12px;
+}
+
+
+#vbox .label
+{
+	-fx-font-family: Arial;
+	-fx-text-fill: rgba(0,0,255,1);
+}
+
+.text-field
+{
+	-fx-text-fill: rgba(0,0,255,1);
+  	-fx-font-family: Arial;
+  		-fx-border-color: rgba(220,220,220,1);
+
+}
+#lblMessage
+{
+	-fx-text-fill: rgba(70,70,70,1);
+}
+#lblTransmiter
+{
+	-fx-text-fill: rgba(0,0,255,1);
+}
+
+
+#lblReceiver,  #txtInfo2
+{
+	-fx-text-fill: rgba(255,0,0,1);
+}
+#lblByteCount, #lblTransmisions
+{
+	-fx-fill: rgba(255,0,0,1);
+}
+
+ #txtTerminal
+{
+	-fx-background-color:#FFFFFF;
+}
+#txtInfo2
+{
+	-fx-text-fill: rgba(0,0,255,1);
+	-fx-font-weight: bold;
+}
+
+#terminal
+{
+	-fx-background-color:#ffffff;
+	
+}
+
+#terminal .list-cell
+{
+	/*-fx-background-color:#404040;*/
+	-fx-padding: 2 2 2 5;
+	-fx-border-width: 0px;
+
+
+}
+
+#terminal .list-cell:even {
+-fx-background-color: #ffffff;
+}
+#terminal .list-cell:odd {
+-fx-background-color: #ffffff;
+}
+
+
+

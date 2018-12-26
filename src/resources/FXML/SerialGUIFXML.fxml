@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="611.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SerialGUIControler">
+   <children>
+      <VBox prefHeight="461.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#onFileClick" text="New Project">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/new.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuOpen" mnemonicParsing="false" onAction="#onFileClick" text="Open Project">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/load.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuSave" disable="true" mnemonicParsing="false" onAction="#onFileClick" text="Save Project">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/save.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuSaveAs" mnemonicParsing="false" onAction="#onFileClick" text="Save Project As">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/save.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                    <MenuItem fx:id="menuClose" mnemonicParsing="false" onAction="#onFileClick" text="Close">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/remove.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Clear">
+                  <items>
+                    <MenuItem fx:id="menuClearR" mnemonicParsing="false" onAction="#onClearClick" text="Clear Receiver">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/clearR.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuClearT" mnemonicParsing="false" onAction="#onClearClick" text="Clear Transmiter">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/clearT.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuClearAll" mnemonicParsing="false" onAction="#onClearClick" text="Clear All">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/clearAll.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Format">
+                    <items>
+                        <Menu fx:id="menuFormatT" mnemonicParsing="false" text="Transmiter">
+                          <items>
+                              <CheckMenuItem fx:id="itemASCIIt" mnemonicParsing="false" onAction="#onTransmiterFormat" selected="true" text="ASCII" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemHEXt" mnemonicParsing="false" onAction="#onTransmiterFormat" text="HEX" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemBINt" mnemonicParsing="false" onAction="#onTransmiterFormat" text="BIN" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemDECt" mnemonicParsing="false" onAction="#onTransmiterFormat" text="DEC" />
+                          </items>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/tx.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Menu>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <Menu fx:id="menuFormatR" mnemonicParsing="false" text="Receiver">
+                          <items>
+                              <CheckMenuItem fx:id="itemASCIIr" mnemonicParsing="false" onAction="#onReceiverFormat" selected="true" text="ASCII" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemHEXr" mnemonicParsing="false" onAction="#onReceiverFormat" text="HEX" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemBINr" mnemonicParsing="false" onAction="#onReceiverFormat" text="BIN" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemDECr" mnemonicParsing="false" onAction="#onReceiverFormat" text="DEC" />
+                          </items>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/rx.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Menu>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <Menu fx:id="menuFormatLine" mnemonicParsing="false" text="Write/Read Line">
+                          <items>
+                              <Menu mnemonicParsing="false" text="Write Line">
+                                <items>
+                                    <CheckMenuItem fx:id="itemCR" mnemonicParsing="false" text="&lt;CR&gt;" />
+                                    <CheckMenuItem fx:id="itemLF" mnemonicParsing="false" text="&lt;LF&gt;" />
+                                </items>
+                              </Menu>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <CheckMenuItem fx:id="itemReadLine" mnemonicParsing="false" text="Read Line" />
+                          </items>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/line.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Menu>
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Theme">
+                    <items>
+                        <CheckMenuItem fx:id="itemLight" mnemonicParsing="false" onAction="#onThemeClick" selected="true" text="Light Theme">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/light.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></CheckMenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <CheckMenuItem fx:id="itemDark" mnemonicParsing="false" onAction="#onThemeClick" text="Dark Theme">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../light/dark.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></CheckMenuItem>
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#onAboutClick" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#onConnectClick" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgOpen" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/open.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Connect" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnDisconnect" mnemonicParsing="false" onAction="#onDisconnectClick" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgClose" fitHeight="11.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Disconnect" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnScan" mnemonicParsing="false" onAction="#onScanClick" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgRefresh" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/find.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Search for Ports" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnNew" mnemonicParsing="false" onAction="#onToolbarItem" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgRefresh111" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/new.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="New Project" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onToolbarItem" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgRefresh11" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Save Project" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnOpen" mnemonicParsing="false" onAction="#onToolbarItem" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgRefresh1" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/load.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Open Project" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnClearT" mnemonicParsing="false" onAction="#onToolbarItem" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgRefresh12" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/clearT.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Clear Transmitter" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <Button fx:id="btnClearR" mnemonicParsing="false" onAction="#onToolbarItem" prefHeight="24.0" prefWidth="33.0">
+                     <graphic>
+                        <ImageView fx:id="imgRefresh121" fitHeight="14.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../light/clearR.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Clear Receiver" />
+                     </tooltip>
+                  </Button>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <ComboBox fx:id="cmbPorts" disable="true" prefHeight="25.0" prefWidth="91.0">
+                     <tooltip>
+                        <Tooltip text="Port" />
+                     </tooltip></ComboBox>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <ComboBox fx:id="cmbBaud" disable="true" prefHeight="25.0" prefWidth="89.0">
+                     <tooltip>
+                        <Tooltip text="Baudrate" />
+                     </tooltip></ComboBox>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <ComboBox fx:id="cmbDataBits" disable="true" prefHeight="25.0" prefWidth="54.0">
+                     <tooltip>
+                        <Tooltip text="Data bits" />
+                     </tooltip></ComboBox>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <ComboBox fx:id="cmbStopBits" disable="true" prefHeight="25.0" prefWidth="66.0">
+                     <tooltip>
+                        <Tooltip text="Stop bits" />
+                     </tooltip></ComboBox>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <ComboBox fx:id="cmbParity" disable="true" prefHeight="25.0" prefWidth="78.0">
+                     <tooltip>
+                        <Tooltip text="Parity" />
+                     </tooltip></ComboBox>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="5.0" />
+                  <ComboBox fx:id="cmbTimer" disable="true" prefWidth="150.0">
+                     <tooltip>
+                        <Tooltip text="Transmit options" />
+                     </tooltip></ComboBox>
+               </items>
+            </ToolBar>
+            <SplitPane dividerPositions="0.28" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="SOMETIMES">
+               <items>
+                  <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <HBox VBox.vgrow="NEVER">
+                           <children>
+                              <Label fx:id="lblTransmiter" prefWidth="1350.0" text="Transmitter-ASCII" textFill="BLUE">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnAdd" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onAddRemoveClick" prefHeight="25.0" prefWidth="25.0">
+                                 <HBox.margin>
+                                    <Insets bottom="7.0" left="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fx:id="imgAdd" fitHeight="11.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../light/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnRemove" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onAddRemoveClick" prefHeight="25.0" prefWidth="25.0">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fx:id="imgRemove" fitHeight="11.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../light/remove.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefViewportHeight="366.0" prefViewportWidth="185.0" HBox.hgrow="ALWAYS" VBox.vgrow="SOMETIMES">
+                           <content>
+                              <VBox fx:id="vbox">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <Label minWidth="30.0" prefHeight="10.0" prefWidth="30.0" text="TX-&gt;" textFill="BLUE">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" top="15.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtWrite" prefHeight="25.0" prefWidth="118.0" promptText="type here!" HBox.hgrow="SOMETIMES">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnSend" minWidth="35.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="24.0" prefWidth="35.0" text="&gt;&gt;" textFill="BLUE">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Arial Bold" size="13.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Separator prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <HBox maxHeight="57.0" prefHeight="21.0" prefWidth="193.0" VBox.vgrow="NEVER">
+                           <children>
+                              <Button fx:id="btnCR" minHeight="30.0" minWidth="75.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="25.0" prefWidth="49.0" text="&lt;CR&gt;" textFill="#464646">
+                                 <HBox.margin>
+                                    <Insets bottom="6.0" left="10.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnLF" minHeight="30.0" minWidth="75.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="30.0" prefWidth="49.0" text="&lt;LF&gt;" textFill="#464646">
+                                 <HBox.margin>
+                                    <Insets bottom="6.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCRLF" minHeight="30.0" minWidth="75.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="30.0" prefWidth="70.0" text="&lt;CR+LF&gt;" textFill="#464646">
+                                 <HBox.margin>
+                                    <Insets bottom="6.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="461.0" prefWidth="563.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox prefHeight="14.0" prefWidth="541.0">
+                           <children>
+                              <Label fx:id="lblReceiver" minWidth="50.0" prefHeight="15.0" prefWidth="2000.0" text="Receiver-ASCII " textFill="RED">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="lblTransmisions" strokeType="OUTSIDE" strokeWidth="0.0" text="transmisions = 0" visible="false">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="lblByteCount" strokeType="OUTSIDE" strokeWidth="0.0" text="byte count = 0" visible="false" wrappingWidth="127.720703125">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="btnASCII" minHeight="25.0" minWidth="33.0" mnemonicParsing="false" onAction="#onASCIIClick" prefHeight="25.0" prefWidth="33.0">
+                                 <HBox.margin>
+                                    <Insets bottom="7.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../light/ascii.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="ASCII table" />
+                                 </tooltip>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox fx:id="hboxTerminal" VBox.vgrow="SOMETIMES">
+                           <children>
+                              <ListView fx:id="terminal" editable="true" prefHeight="376.0" prefWidth="248.0" HBox.hgrow="SOMETIMES">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ListView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="554.0" VBox.vgrow="NEVER">
+                           <children>
+                              <Label fx:id="lblMessage" minWidth="76.0" prefHeight="21.0" prefWidth="76.0" text="Message:" textFill="#464646" HBox.hgrow="NEVER">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="7.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="txtInfo" prefHeight="21.0" prefWidth="2000.0" text="Scan for ports!" textFill="BLUE" HBox.hgrow="SOMETIMES">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="txtInfo2" minHeight="17.0" minWidth="155.0" prefHeight="17.0" prefWidth="155.0">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

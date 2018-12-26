@@ -1,0 +1,105 @@
+.root {
+    -fx-base: #303030;
+    -fx-accent: #303030;
+    -fx-default-button: #303030;
+    -fx-focus-color: #303030;
+    -fx-faint-focus-color: #90909022;
+   /*  -fx-focused-text-base-color : ladder(
+            -fx-selection-bar,
+            -fx-light-text-color 100%,
+            -fx-dark-text-color 100%,
+            -fx-dark-text-color 100%,
+            -fx-mid-text-color 100%
+        );*/
+    -fx-focused-mark-color : -fx-focused-text-base-color ;  
+
+
+    -fx-font-family: arial;  
+}
+.button
+{
+	-fx-text-fill: #00FF00;
+	-fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-font-size: 12px;
+}
+
+#vbox .label
+{
+	-fx-font-family: Arial;
+	-fx-text-fill: rgba(0,255,0,1);
+}
+
+.split-pane
+{
+	-fx-background-color:#303030;
+}
+
+#vbox
+{
+	-fx-background-color:#303030;
+	-fx-border-color:rgba(150,150,150,1);
+	-fx-border-width: 0.5
+}
+
+.text-field
+{
+	-fx-text-fill: rgba(0,255,0,1);
+  	-fx-font-family: Arial;
+	-fx-background-color:#404040;
+	-fx-border-color: rgba(150,150,150,1);
+	/*-fx-border-width:1;
+	-fx-padding:2;*/
+}
+#lblMessage
+{
+	-fx-text-fill: rgba(255,255,255,1);
+}
+#lblTransmiter
+{
+	-fx-text-fill: rgba(0,255,0,1);
+}
+
+
+#scroll
+{
+	-fx-background-color:#303030;
+	-fx-border-color:rgba(150,150,150,1);
+	-fx-border-width: 0.5
+}
+
+#lblReceiver
+{
+	-fx-text-fill: rgba(255,255,0,1);
+}
+
+#lblByteCount, #lblTransmisions
+{
+	-fx-fill: rgba(255,255,0,1);
+}
+#txtInfo2
+{
+	-fx-text-fill: rgba(0,255,0,1);
+	-fx-font-weight: bold;
+}
+#terminal
+{
+	-fx-background-color:#404040;
+	
+}
+
+#terminal .list-cell
+{
+	/*-fx-background-color:#404040;*/
+	-fx-padding: 2 2 2 5;
+	-fx-border-width: 0px;
+
+
+}
+
+#terminal .list-cell:even {
+-fx-background-color: #404040;
+}
+#terminal .list-cell:odd {
+-fx-background-color: #404040;
+}
