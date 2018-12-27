@@ -4,7 +4,7 @@
 
 UART Console is open source PC software written in java for serial communication with target device. 
 UARTConsole100.exe built using launch4j can be downloaded [here](http://www.optolab.ftn.uns.ac.rs/index.php/education?id=214).
-View UART Console on youtube.
+View UART Console on [youtube](https://www.youtube.com/watch?v=aCOn-i0fPzY).
 
 ### Prerequisites
 
